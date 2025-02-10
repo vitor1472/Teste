@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhe</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            height: 2em;
+        }
+
+        h1 {
+            color: #3c3c3c;
+        }
+
+        #subt {
+            color: #3c3c3c;
+        }
+
+        #menu {
+            display: flex;
+            padding: 20px;
+            background-color: #dbb6ee;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+            margin-top: 5em;
+            margin-bottom: 2em;
+            height: 40em;
+            border-radius: 5%;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 10px;
+            width: 300px;
+            background-color: #ffffff;
+        }
+
+        img {
+            border-radius: 8px;
+        }
+
+        button {
+            background-color: #6666;
+            color: white;
+            padding: 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 8em;
+            margin-top: 2em;
+        }
+
+        button:hover {
+            background-color: #3c3c3c;
+        }
+
+        #praia {
+            position: absolute;
+            left: 0;
+            margin-left: 30em;
+        }
+
+        #Pesquisa {
+            justify-content: center;
+            display: flex;
+            margin-top: 4em;
+            background-color: #4b1c71;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+            height: 8em;
+        }
+
+        input {
+            height: 30px;
+            width: 300px;
+            border-radius: 10px;
+        }
+
+        #bt2 {
+            width: 150px;
+            border-radius: 10px;
+            height: 4em;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #bt3 {
+            width: 150px;
+            margin-left: 150px;
+            height: 4em;
+            border-radius: 10px;
+        }
+
+        #margin {
+            margin-top: 2em;
+        }
+
+        #margin1 {
+            margin-top: 2em;
+            margin-left: 2em;
+        }
+
+        #margin2 {
+            margin-top: 2em;
+            margin-right: 3em;
+        }
+
+        footer {
+            width: 100%;
+            background-color: #7f4ca5;
+            justify-content: center;
+            height: 19em;
+        }
+
+        h3 {
+            margin-right: 40px;
+            justify-content: center;
+            display: flex;
+            margin-left: 4em;
+        }
+
+        h2 {
+            justify-content: center;
+            display: flex;
+            margin-right: 2em;
+            margin-bottom: 1em;
+            margin-left: 3em;
+            padding-top: 1em;
+        }
+
+        text {
+            width: 60%;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        #estado {
+            font-weight: bold;
+            
+        }
+
+        #desc {
+            height: 15em;
+            margin-top: 5em;
+        }
+
+        input {
+            width: 35em;
+        }
+        #input1{
+          width: 31.5em;
+        }
+
+        a {
+            justify-content: center;
+            display: flex;
+            color: #ffffff;
+            overflow-x: hidden;
+            height: 2em;
+            text-decoration: none;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+<header>
+    <img id="praia" src="praia5.webp" alt="Dark Chocolate" height="115" width="200">
+    <h1>Aventura & Rumo</h1>
+    <p id="subt">Sua Viagem, Nosso Compromisso!</p>
+</header>
+
+<section id="menu">
+    <form id="formCadastro">
+        <div id="margin1">
+            <label>Nome:</label>
+            <input type="text" name="nomeLoc">
+        </div>
+
+        <div id="margin2">
+            <label>Localização:</label><br>
+            <label for="estado">UF/Cidade:</label>
+            <select id="estado" name="estLoc">
+              <option value="AC">AC</option>
+              <option value="AL">AL</option>
+		          <option value="AP">AP</option>
+              <option value="AM">AM</option>
+              <option value="BA">BA</option>
+              <option value="CE">CE</option>
+              <option value="DF">DF</option>
+              <option value="ES">ES</option>
+              <option value="GO">GO</option>
+              <option value="MA">MA</option>
+              <option value="MT">MT</option>
+              <option value="MS">MS</option>
+              <option value="MG">MG</option>
+              <option value="PA">PA</option>
+              <option value="PB">PB</option>
+              <option value="PR">PR</option>
+              <option value="PE">PE</option>
+              <option value="PI">PI</option>
+              <option value="RJ">RJ</option>
+              <option value="RN">RN</option>
+              <option value="RS">RS</option>
+              <option value="RO">RO</option>
+              <option value="RR">RR</option>
+              <option value="SC">SC</option>
+              <option value="SP">SP</option>
+              <option value="SE">SE</option>
+              <option value="TO">TO</option>
+		
+               
+            </select>
+            <input id="input1"   type="text" name="descLoc">
+        </div>
+
+        <div id="margin">
+            <label>Referencia:</label>
+            <input type="text" name="refLoc">
+        </div>
+
+        <div>
+            <label>Descritivos:</label>
+            <input id="desc" type="text" name="descritivosLoc">
+        </div>
+
+        <button id="bt2" type="button" onclick="window.location.href='inicio.html'">Voltar</button>
+        <button id="bt3" type="submit">Cadastrar</button>
+    </form>
+</section>
+
+<footer>
+    <h2>Sobre nós</h2>
+    <text>Somos uma agência de turismo apaixonada por criar experiências inesquecíveis para todos os tipos de viajantes.
+        Nossa missão é proporcionar momentos únicos e aventuras personalizadas, seja para quem deseja explorar novos destinos,
+        relaxar nas praias paradisíacas ou embarcar em viagens culturais. Nós da Aventura & Rumo somos apaixonados por criar experiências inesquecíveis
+        para todos os tipos de viajantes.
+        Com uma equipe experiente e comprometida, trabalhamos para transformar cada viagem em uma experiência memorável.
+        Oferecemos pacotes turísticos completos, incluindo transporte, hospedagem, passeios guiados e atendimento especializado, sempre buscando a melhor qualidade e segurança Oferecemos pacotes turísticos completos,
+        incluindo transporte, hospedagem, passeios guiados e atendimento especializado, sempre buscando a melhor qualidade e segurança.
+        Nosso compromisso é com o seu conforto e a satisfação de cada cliente. Seja você um aventureiro em busca de novas emoções ou um turista em busca de descanso,
+        nossa missão é ajudá-lo a descobrir o melhor do mundo, com um atendimento personalizado e cuidadoso.</text>
+    <h3>Política de Privacidade</h3>
+    <h3>Termos de Serviço</h3>
+    <h3>Contato</h3>
+</footer>
+
+<script>
+// Validação do formulário
+document.addEventListener("DOMContentLoaded", () => {
+    const validateForm = () => {
+        let valid = true;
+        const newErrors = {
+            nome: '',
+            est: '',
+            desc: '',
+            ref: '',
+            descritivos: '',
+        };
+
+        const nomeLoc = document.querySelector('input[name="nomeLoc"]');
+        const estLoc = document.querySelector('select[name="estLoc"]');
+        const descLoc = document.querySelector('input[name="descLoc"]');
+        const refLoc = document.querySelector('input[name="refLoc"]');
+        const descritivosLoc = document.querySelector('input[name="descritivosLoc"]');
+
+        if (!nomeLoc || !nomeLoc.value.trim()) {
+            newErrors.nome = 'O nome é obrigatório.';
+            valid = false;
+        }
+        if (!estLoc || !estLoc.value.trim()) {
+            newErrors.est = 'O estado é obrigatório.';
+            valid = false;
+        }
+        if (!descLoc || !descLoc.value.trim()) {
+            newErrors.desc = 'A descrição é obrigatória.';
+            valid = false;
+        }
+        if (!refLoc || !refLoc.value.trim()) {
+            newErrors.ref = 'A referência é obrigatória.';
+            valid = false;
+        }
+        if (!descritivosLoc || !descritivosLoc.value.trim()) {
+            newErrors.descritivos = 'Os descritivos são obrigatórios.';
+            valid = false;
+        }
+
+        // Logando os erros para debug
+        console.log(newErrors);
+        return valid;
+    };
+
+    // Função de cadastro
+    async function Cadastro() {
+        const nomeLoc = document.querySelector('input[name="nomeLoc"]').value;
+        const estLoc = document.querySelector('select[name="estLoc"]').value;
+        const descLoc = document.querySelector('input[name="descLoc"]').value;
+        const refLoc = document.querySelector('input[name="refLoc"]').value;
+        const descritivosLoc = document.querySelector('input[name="descritivosLoc"]').value;
+
+        const data = {
+            nome_Loc: nomeLoc,
+            est_Loc: estLoc,
+            desc_Loc: descLoc,
+            ref_Loc: refLoc,
+            descritivos_Loc: descritivosLoc,
+        };
+
+        console.log("Dados enviados para a API:", data);
+
+        try {
+            const response = await axios.post('https://localhost:7293/api/PontosTuristicos', data);
+
+            if (response.status === 200) {
+                console.log("Resposta da API:", response.data);
+                alert('Ponto turístico cadastrado com sucesso!');
+                
+                // Limpar os campos após sucesso
+                document.querySelector('input[name="nomeLoc"]').value = '';
+                document.querySelector('select[name="estLoc"]').value = '';
+                document.querySelector('input[name="descLoc"]').value = '';
+                document.querySelector('input[name="refLoc"]').value = '';
+                document.querySelector('input[name="descritivosLoc"]').value = '';
+            }
+        } catch (error) {
+            console.error("Erro ao enviar dados: ", error);
+            alert('Houve um problema ao cadastrar. Tente novamente.');
+        }
+    }
+
+    // Associar o evento de submit ao formulário
+    document.getElementById("formCadastro").addEventListener("submit", (event) => {
+        event.preventDefault(); // Impede o envio padrão do formulário
+
+        if (validateForm()) {
+            Cadastro();
+        } else {
+            alert('Preencha todos os campos corretamente.');
+        }
+    });
+});
+</script>
+
+</body>
+</html>
