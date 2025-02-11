@@ -19,47 +19,84 @@ namespace TodoApi.Controllers
             _context = context;
         }
 
-        // GET: api/PontosTuristicos
+
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TodoItem>>> GetPontosTuristicos()
+        public async Task<ActionResult<IEnumerable<TodoItem>>> GetPontosTuristicos(
+            string? nome = null,
+            string? localizacao = null,
+            string? estado = null,
+            string? referencia = null,
+            string? descricao = null)
         {
-            return await _context.TodoItems.ToListAsync();  // Retorna todos os pontos turísticos
+            var query = _context.TodoItems.AsQueryable();
+
+
+            if (!string.IsNullOrEmpty(nome))
+            {
+                query = query.Where(p => p.nome_Loc.Contains(nome));
+            }
+
+            if (!string.IsNullOrEmpty(localizacao))
+            {
+                query = query.Where(p => p.desc_Loc.Contains(localizacao));
+            }
+
+            if (!string.IsNullOrEmpty(estado))
+            {
+                query = query.Where(p => p.est_Loc.Contains(estado));
+            }
+
+            if (!string.IsNullOrEmpty(referencia))
+            {
+                query = query.Where(p => p.ref_Loc.Contains(referencia));
+            }
+
+
+            if (!string.IsNullOrEmpty(descricao))
+            {
+                query = query.Where(p => p.descritivos_Loc.Contains(descricao));
+            }
+
+
+            var pontosTuristicos = await query.ToListAsync();
+
+            return pontosTuristicos;
         }
 
-        // GET: api/PontosTuristicos/5
+
         [HttpGet("{id}")]
         public async Task<ActionResult<TodoItem>> GetPontoTuristico(int id)
         {
-            var pontoTuristico = await _context.TodoItems.FindAsync(id);  // Busca um ponto turístico pelo id
+            var pontoTuristico = await _context.TodoItems.FindAsync(id);
 
             if (pontoTuristico == null)
             {
-                return NotFound();  // Retorna 404 caso não encontre o ponto turístico
+                return NotFound();
             }
 
             return pontoTuristico;
         }
 
-        // PUT: api/PontosTuristicos/5
+       
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPontoTuristico(int id, TodoItem pontoTuristico)
         {
             if (id != pontoTuristico.Id)
             {
-                return BadRequest();  // Retorna erro se o id não corresponder
+                return BadRequest();
             }
 
-            _context.Entry(pontoTuristico).State = EntityState.Modified;  // Marca o ponto turístico como modificado
+            _context.Entry(pontoTuristico).State = EntityState.Modified;
 
             try
             {
-                await _context.SaveChangesAsync();  // Salva as mudanças no banco de dados
+                await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!TodoItemExists(id))
                 {
-                    return NotFound();  // Se o ponto turístico não existir, retorna erro 404
+                    return NotFound();
                 }
                 else
                 {
@@ -67,39 +104,38 @@ namespace TodoApi.Controllers
                 }
             }
 
-            return NoContent();  // Retorna código 204 caso a atualização tenha sido bem-sucedida
+            return NoContent();
         }
 
-        // POST: api/PontosTuristicos
+
         [HttpPost]
         public async Task<ActionResult<TodoItem>> PostPontoTuristico(TodoItem pontoTuristico)
         {
-            _context.TodoItems.Add(pontoTuristico);  // Adiciona um novo ponto turístico
-            await _context.SaveChangesAsync();  // Salva no banco de dados
+            _context.TodoItems.Add(pontoTuristico);  
+            await _context.SaveChangesAsync();  
 
-            return CreatedAtAction(nameof(GetPontoTuristico), new { id = pontoTuristico.Id }, pontoTuristico);  // Retorna o ponto turístico criado
+            return CreatedAtAction(nameof(GetPontoTuristico), new { id = pontoTuristico.Id }, pontoTuristico);  
         }
 
-        // DELETE: api/PontosTuristicos/5
+        
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePontoTuristico(int id)
         {
-            var pontoTuristico = await _context.TodoItems.FindAsync(id);  // Busca o ponto turístico pelo id
+            var pontoTuristico = await _context.TodoItems.FindAsync(id);  
             if (pontoTuristico == null)
             {
-                return NotFound();  // Se não encontrar o ponto turístico, retorna erro 404
+                return NotFound();  
             }
 
-            _context.TodoItems.Remove(pontoTuristico);  // Remove o ponto turístico
-            await _context.SaveChangesAsync();  // Salva as mudanças no banco de dados
-
-            return NoContent();  // Retorna código 204 caso a exclusão tenha sido bem-sucedida
+            _context.TodoItems.Remove(pontoTuristico);  
+            await _context.SaveChangesAsync();  
+            return NoContent();  
         }
 
-        // Método auxiliar para verificar se o ponto turístico existe no banco de dados
+        
         private bool TodoItemExists(int id)
         {
-            return _context.TodoItems.Any(e => e.Id == id);  // Retorna true se o ponto turístico existir
+            return _context.TodoItems.Any(e => e.Id == id);  
         }
     }
 }

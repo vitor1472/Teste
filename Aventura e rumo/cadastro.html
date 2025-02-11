@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhe</title>
+    <title>Cadastrar</title>
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
@@ -152,7 +153,7 @@
 
         #estado {
             font-weight: bold;
-            
+
         }
 
         #desc {
@@ -163,8 +164,9 @@
         input {
             width: 35em;
         }
-        #input1{
-          width: 31.5em;
+
+        #input1 {
+            width: 31.5em;
         }
 
         a {
@@ -178,184 +180,193 @@
     </style>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
+
 <body>
 
-<header>
-    <img id="praia" src="praia5.webp" alt="Dark Chocolate" height="115" width="200">
-    <h1>Aventura & Rumo</h1>
-    <p id="subt">Sua Viagem, Nosso Compromisso!</p>
-</header>
+    <header>
+        <img id="praia" src="praia5.webp" alt="Dark Chocolate" height="115" width="200">
+        <h1>Aventura & Rumo</h1>
+        <p id="subt">Sua Viagem, Nosso Compromisso!</p>
+    </header>
 
-<section id="menu">
-    <form id="formCadastro">
-        <div id="margin1">
-            <label>Nome:</label>
-            <input type="text" name="nomeLoc">
-        </div>
+    <section id="menu">
+        <form id="formCadastro">
+            <div id="margin1">
+                <label>Nome:</label>
+                <input type="text" name="nomeLoc">
+            </div>
 
-        <div id="margin2">
-            <label>Localização:</label><br>
-            <label for="estado">UF/Cidade:</label>
-            <select id="estado" name="estLoc">
-              <option value="AC">AC</option>
-              <option value="AL">AL</option>
-		          <option value="AP">AP</option>
-              <option value="AM">AM</option>
-              <option value="BA">BA</option>
-              <option value="CE">CE</option>
-              <option value="DF">DF</option>
-              <option value="ES">ES</option>
-              <option value="GO">GO</option>
-              <option value="MA">MA</option>
-              <option value="MT">MT</option>
-              <option value="MS">MS</option>
-              <option value="MG">MG</option>
-              <option value="PA">PA</option>
-              <option value="PB">PB</option>
-              <option value="PR">PR</option>
-              <option value="PE">PE</option>
-              <option value="PI">PI</option>
-              <option value="RJ">RJ</option>
-              <option value="RN">RN</option>
-              <option value="RS">RS</option>
-              <option value="RO">RO</option>
-              <option value="RR">RR</option>
-              <option value="SC">SC</option>
-              <option value="SP">SP</option>
-              <option value="SE">SE</option>
-              <option value="TO">TO</option>
-		
-               
-            </select>
-            <input id="input1"   type="text" name="descLoc">
-        </div>
+            <div id="margin2">
+                <label>Localização:</label><br>
+                <label for="estado">UF/Cidade:</label>
+                <select id="estado" name="estLoc">
+                    <option value="AC">AC</option>
+                    <option value="AL">AL</option>
+                    <option value="AP">AP</option>
+                    <option value="AM">AM</option>
+                    <option value="BA">BA</option>
+                    <option value="CE">CE</option>
+                    <option value="DF">DF</option>
+                    <option value="ES">ES</option>
+                    <option value="GO">GO</option>
+                    <option value="MA">MA</option>
+                    <option value="MT">MT</option>
+                    <option value="MS">MS</option>
+                    <option value="MG">MG</option>
+                    <option value="PA">PA</option>
+                    <option value="PB">PB</option>
+                    <option value="PR">PR</option>
+                    <option value="PE">PE</option>
+                    <option value="PI">PI</option>
+                    <option value="RJ">RJ</option>
+                    <option value="RN">RN</option>
+                    <option value="RS">RS</option>
+                    <option value="RO">RO</option>
+                    <option value="RR">RR</option>
+                    <option value="SC">SC</option>
+                    <option value="SP">SP</option>
+                    <option value="SE">SE</option>
+                    <option value="TO">TO</option>
 
-        <div id="margin">
-            <label>Referencia:</label>
-            <input type="text" name="refLoc">
-        </div>
 
-        <div>
-            <label>Descritivos:</label>
-            <input id="desc" type="text" name="descritivosLoc">
-        </div>
+                </select>
+                <input id="input1" type="text" name="descLoc">
+            </div>
 
-        <button id="bt2" type="button" onclick="window.location.href='inicio.html'">Voltar</button>
-        <button id="bt3" type="submit">Cadastrar</button>
-    </form>
-</section>
+            <div id="margin">
+                <label>Referencia:</label>
+                <input type="text" name="refLoc">
+            </div>
 
-<footer>
-    <h2>Sobre nós</h2>
-    <text>Somos uma agência de turismo apaixonada por criar experiências inesquecíveis para todos os tipos de viajantes.
-        Nossa missão é proporcionar momentos únicos e aventuras personalizadas, seja para quem deseja explorar novos destinos,
-        relaxar nas praias paradisíacas ou embarcar em viagens culturais. Nós da Aventura & Rumo somos apaixonados por criar experiências inesquecíveis
-        para todos os tipos de viajantes.
-        Com uma equipe experiente e comprometida, trabalhamos para transformar cada viagem em uma experiência memorável.
-        Oferecemos pacotes turísticos completos, incluindo transporte, hospedagem, passeios guiados e atendimento especializado, sempre buscando a melhor qualidade e segurança Oferecemos pacotes turísticos completos,
-        incluindo transporte, hospedagem, passeios guiados e atendimento especializado, sempre buscando a melhor qualidade e segurança.
-        Nosso compromisso é com o seu conforto e a satisfação de cada cliente. Seja você um aventureiro em busca de novas emoções ou um turista em busca de descanso,
-        nossa missão é ajudá-lo a descobrir o melhor do mundo, com um atendimento personalizado e cuidadoso.</text>
-    <h3>Política de Privacidade</h3>
-    <h3>Termos de Serviço</h3>
-    <h3>Contato</h3>
-</footer>
+            <div>
+                <label>Descritivos:</label>
+                <input id="desc" type="text" name="descritivosLoc">
+            </div>
 
-<script>
-// Validação do formulário
-document.addEventListener("DOMContentLoaded", () => {
-    const validateForm = () => {
-        let valid = true;
-        const newErrors = {
-            nome: '',
-            est: '',
-            desc: '',
-            ref: '',
-            descritivos: '',
-        };
+            <button id="bt2" type="button" onclick="window.location.href='inicio.html'">Voltar</button>
+            <button id="bt3" type="submit">Cadastrar</button>
+        </form>
+    </section>
 
-        const nomeLoc = document.querySelector('input[name="nomeLoc"]');
-        const estLoc = document.querySelector('select[name="estLoc"]');
-        const descLoc = document.querySelector('input[name="descLoc"]');
-        const refLoc = document.querySelector('input[name="refLoc"]');
-        const descritivosLoc = document.querySelector('input[name="descritivosLoc"]');
+    <footer>
+        <h2>Sobre nós</h2>
+        <text>Somos uma agência de turismo apaixonada por criar experiências inesquecíveis para todos os tipos de
+            viajantes.
+            Nossa missão é proporcionar momentos únicos e aventuras personalizadas, seja para quem deseja explorar novos
+            destinos,
+            relaxar nas praias paradisíacas ou embarcar em viagens culturais. Nós da Aventura & Rumo somos apaixonados
+            por criar experiências inesquecíveis
+            para todos os tipos de viajantes.
+            Com uma equipe experiente e comprometida, trabalhamos para transformar cada viagem em uma experiência
+            memorável.
+            Oferecemos pacotes turísticos completos, incluindo transporte, hospedagem, passeios guiados e atendimento
+            especializado, sempre buscando a melhor qualidade e segurança Oferecemos pacotes turísticos completos,
+            incluindo transporte, hospedagem, passeios guiados e atendimento especializado, sempre buscando a melhor
+            qualidade e segurança.
+            Nosso compromisso é com o seu conforto e a satisfação de cada cliente. Seja você um aventureiro em busca de
+            novas emoções ou um turista em busca de descanso,
+            nossa missão é ajudá-lo a descobrir o melhor do mundo, com um atendimento personalizado e cuidadoso.</text>
+        <h3>Política de Privacidade</h3>
+        <h3>Termos de Serviço</h3>
+        <h3>Contato</h3>
+    </footer>
 
-        if (!nomeLoc || !nomeLoc.value.trim()) {
-            newErrors.nome = 'O nome é obrigatório.';
-            valid = false;
-        }
-        if (!estLoc || !estLoc.value.trim()) {
-            newErrors.est = 'O estado é obrigatório.';
-            valid = false;
-        }
-        if (!descLoc || !descLoc.value.trim()) {
-            newErrors.desc = 'A descrição é obrigatória.';
-            valid = false;
-        }
-        if (!refLoc || !refLoc.value.trim()) {
-            newErrors.ref = 'A referência é obrigatória.';
-            valid = false;
-        }
-        if (!descritivosLoc || !descritivosLoc.value.trim()) {
-            newErrors.descritivos = 'Os descritivos são obrigatórios.';
-            valid = false;
-        }
+    <script>
 
-        // Logando os erros para debug
-        console.log(newErrors);
-        return valid;
-    };
+        document.addEventListener("DOMContentLoaded", () => {
+            const validateForm = () => {
+                let valid = true;
+                const newErrors = {
+                    nome: '',
+                    est: '',
+                    desc: '',
+                    ref: '',
+                    descritivos: '',
+                };
 
-    // Função de cadastro
-    async function Cadastro() {
-        const nomeLoc = document.querySelector('input[name="nomeLoc"]').value;
-        const estLoc = document.querySelector('select[name="estLoc"]').value;
-        const descLoc = document.querySelector('input[name="descLoc"]').value;
-        const refLoc = document.querySelector('input[name="refLoc"]').value;
-        const descritivosLoc = document.querySelector('input[name="descritivosLoc"]').value;
+                const nomeLoc = document.querySelector('input[name="nomeLoc"]');
+                const estLoc = document.querySelector('select[name="estLoc"]');
+                const descLoc = document.querySelector('input[name="descLoc"]');
+                const refLoc = document.querySelector('input[name="refLoc"]');
+                const descritivosLoc = document.querySelector('input[name="descritivosLoc"]');
 
-        const data = {
-            nome_Loc: nomeLoc,
-            est_Loc: estLoc,
-            desc_Loc: descLoc,
-            ref_Loc: refLoc,
-            descritivos_Loc: descritivosLoc,
-        };
+                if (!nomeLoc || !nomeLoc.value.trim()) {
+                    newErrors.nome = 'O nome é obrigatório.';
+                    valid = false;
+                }
+                if (!estLoc || !estLoc.value.trim()) {
+                    newErrors.est = 'O estado é obrigatório.';
+                    valid = false;
+                }
+                if (!descLoc || !descLoc.value.trim()) {
+                    newErrors.desc = 'A descrição é obrigatória.';
+                    valid = false;
+                }
+                if (!refLoc || !refLoc.value.trim()) {
+                    newErrors.ref = 'A referência é obrigatória.';
+                    valid = false;
+                }
+                if (!descritivosLoc || !descritivosLoc.value.trim()) {
+                    newErrors.descritivos = 'Os descritivos são obrigatórios.';
+                    valid = false;
+                }
 
-        console.log("Dados enviados para a API:", data);
 
-        try {
-            const response = await axios.post('https://localhost:7293/api/PontosTuristicos', data);
+                console.log(newErrors);
+                return valid;
+            };
 
-            if (response.status === 200) {
-                console.log("Resposta da API:", response.data);
-                alert('Ponto turístico cadastrado com sucesso!');
-                
-                // Limpar os campos após sucesso
-                document.querySelector('input[name="nomeLoc"]').value = '';
-                document.querySelector('select[name="estLoc"]').value = '';
-                document.querySelector('input[name="descLoc"]').value = '';
-                document.querySelector('input[name="refLoc"]').value = '';
-                document.querySelector('input[name="descritivosLoc"]').value = '';
+
+            async function Cadastro() {
+                const nomeLoc = document.querySelector('input[name="nomeLoc"]').value;
+                const estLoc = document.querySelector('select[name="estLoc"]').value;
+                const descLoc = document.querySelector('input[name="descLoc"]').value;
+                const refLoc = document.querySelector('input[name="refLoc"]').value;
+                const descritivosLoc = document.querySelector('input[name="descritivosLoc"]').value;
+
+                const data = {
+                    nome_Loc: nomeLoc,
+                    est_Loc: estLoc,
+                    desc_Loc: descLoc,
+                    ref_Loc: refLoc,
+                    descritivos_Loc: descritivosLoc,
+                };
+
+                console.log("Dados enviados para a API:", data);
+
+                try {
+                    const response = await axios.post('https://localhost:7293/api/PontosTuristicos', data);
+
+                    if (response.status === 200) {
+                        console.log("Resposta da API:", response.data);
+                        alert('Ponto turístico cadastrado com sucesso!');
+
+
+                        document.querySelector('input[name="nomeLoc"]').value = '';
+                        document.querySelector('select[name="estLoc"]').value = '';
+                        document.querySelector('input[name="descLoc"]').value = '';
+                        document.querySelector('input[name="refLoc"]').value = '';
+                        document.querySelector('input[name="descritivosLoc"]').value = '';
+                    }
+                } catch (error) {
+                    console.error("Erro ao enviar dados: ", error);
+                    alert('Houve um problema ao cadastrar. Tente novamente.');
+                }
             }
-        } catch (error) {
-            console.error("Erro ao enviar dados: ", error);
-            alert('Houve um problema ao cadastrar. Tente novamente.');
-        }
-    }
 
-    // Associar o evento de submit ao formulário
-    document.getElementById("formCadastro").addEventListener("submit", (event) => {
-        event.preventDefault(); // Impede o envio padrão do formulário
 
-        if (validateForm()) {
-            Cadastro();
-        } else {
-            alert('Preencha todos os campos corretamente.');
-        }
-    });
-});
-</script>
+            document.getElementById("formCadastro").addEventListener("submit", (event) => {
+                event.preventDefault();
+
+                if (validateForm()) {
+                    Cadastro();
+                } else {
+                    alert('Preencha todos os campos corretamente.');
+                }
+            });
+        });
+    </script>
 
 </body>
+
 </html>
