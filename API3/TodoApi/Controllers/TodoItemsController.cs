@@ -22,42 +22,22 @@ namespace TodoApi.Controllers
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TodoItem>>> GetPontosTuristicos(
-            string? nome = null,
-            string? localizacao = null,
-            string? estado = null,
-            string? referencia = null,
-            string? descricao = null)
+    string? searchTerm = null)
         {
             var query = _context.TodoItems.AsQueryable();
 
-
-            if (!string.IsNullOrEmpty(nome))
+            // Se um termo de pesquisa foi fornecido, aplica o filtro em nome, estado e descrição
+            if (!string.IsNullOrEmpty(searchTerm))
             {
-                query = query.Where(p => p.nome_Loc.Contains(nome));
+                query = query.Where(p =>
+                    p.nome_Loc.Contains(searchTerm) ||
+                    p.est_Loc.Contains(searchTerm) ||
+                    p.desc_Loc.Contains(searchTerm) ||
+                    p.descritivos_Loc.Contains(searchTerm)); 
+
             }
 
-            if (!string.IsNullOrEmpty(localizacao))
-            {
-                query = query.Where(p => p.desc_Loc.Contains(localizacao));
-            }
-
-            if (!string.IsNullOrEmpty(estado))
-            {
-                query = query.Where(p => p.est_Loc.Contains(estado));
-            }
-
-            if (!string.IsNullOrEmpty(referencia))
-            {
-                query = query.Where(p => p.ref_Loc.Contains(referencia));
-            }
-
-
-            if (!string.IsNullOrEmpty(descricao))
-            {
-                query = query.Where(p => p.descritivos_Loc.Contains(descricao));
-            }
-
-
+            // Executa a consulta e retorna os resultados
             var pontosTuristicos = await query.ToListAsync();
 
             return pontosTuristicos;
@@ -77,7 +57,7 @@ namespace TodoApi.Controllers
             return pontoTuristico;
         }
 
-       
+
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPontoTuristico(int id, TodoItem pontoTuristico)
         {
@@ -111,31 +91,31 @@ namespace TodoApi.Controllers
         [HttpPost]
         public async Task<ActionResult<TodoItem>> PostPontoTuristico(TodoItem pontoTuristico)
         {
-            _context.TodoItems.Add(pontoTuristico);  
-            await _context.SaveChangesAsync();  
+            _context.TodoItems.Add(pontoTuristico);
+            await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetPontoTuristico), new { id = pontoTuristico.Id }, pontoTuristico);  
+            return CreatedAtAction(nameof(GetPontoTuristico), new { id = pontoTuristico.Id }, pontoTuristico);
         }
 
-        
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePontoTuristico(int id)
         {
-            var pontoTuristico = await _context.TodoItems.FindAsync(id);  
+            var pontoTuristico = await _context.TodoItems.FindAsync(id);
             if (pontoTuristico == null)
             {
-                return NotFound();  
+                return NotFound();
             }
 
-            _context.TodoItems.Remove(pontoTuristico);  
-            await _context.SaveChangesAsync();  
-            return NoContent();  
+            _context.TodoItems.Remove(pontoTuristico);
+            await _context.SaveChangesAsync();
+            return NoContent();
         }
 
-        
+
         private bool TodoItemExists(int id)
         {
-            return _context.TodoItems.Any(e => e.Id == id);  
+            return _context.TodoItems.Any(e => e.Id == id);
         }
     }
 }

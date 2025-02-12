@@ -142,7 +142,7 @@
 
     .carrosel {
       display: flex;
-      width: 760%;
+      width: 310%;
       animation: slide 6s infinite;
     }
 
@@ -261,7 +261,7 @@
 
         <div class="carrosel-item">
           <div class="item">
-            <img src="rio.jpeg"  height="185" width="300">
+            <img src="rio.jpeg" height="185" width="300">
             <h3>Cristo redentor</h3>
             <p>Estátua que retrata Jesus Cristo com trinta metros de altura.</p>
           </div>
@@ -341,51 +341,46 @@
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-
   document.getElementById('margin').addEventListener('submit', function (e) {
     e.preventDefault();
 
     const query = document.getElementById('searchQuery').value;
 
-
     if (query.trim() === "") {
-      alert('Por favor, digite um nome para buscar.');
+      alert('Por favor, digite um termo para buscar.');
       return;
     }
-
 
     document.querySelector('.carrosel-container').style.display = 'none';
     document.getElementById('resultados').style.display = 'block';
 
-
+    // Enviando o valor para a API
     axios.get('https://localhost:7293/api/PontosTuristicos', {
-      params: { nome: query }
+      params: {
+        searchTerm: query
+      }
     })
       .then(function (response) {
-
         const resultadosDiv = document.getElementById('resultados');
         resultadosDiv.innerHTML = '';
 
-
         if (response.data.length > 0) {
           const results = response.data;
-
-
           results.forEach(function (Loc) {
             const locDiv = document.createElement('div');
             locDiv.classList.add('resultado-item');
             locDiv.innerHTML = `
-            <h3 class="nome-loc">${Loc.nome_Loc}</h3>
-            <div>
+          <h3 class="nome-loc">${Loc.nome_Loc}</h3>
+          <div>
             <h4 class="detalhes">Estado: ${Loc.est_Loc}</h4>
+            <h4 class="descricao">Cidade: ${Loc.desc_Loc}</h4>
             <h4 class="descricao">Descrição: ${Loc.descritivos_Loc}</h4>
-            <button>Ver detalhes</button>
-          `;
-
+            <button>Mais informações</button>
+          </div>
+        `;
             resultadosDiv.appendChild(locDiv);
           });
         } else {
-
           resultadosDiv.innerHTML = '';
           const errorDiv = document.createElement('div');
           errorDiv.classList.add('error');
@@ -398,6 +393,7 @@
         alert('Erro ao realizar a busca.');
       });
   });
+
 </script>
 
 

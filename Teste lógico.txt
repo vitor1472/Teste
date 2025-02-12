@@ -1,0 +1,15 @@
+Teste Prático de Lógica
+
+Monte um arquivo texto com um algoritmo, passo a passo, para troca de um pneu de carro que furou.
+
+1. Encostar o carro (dando seta indicando sua entrada);
+2. Ligar o pisca alerta;
+3. Sinalizar com o triangulo;
+4. Pegar estepe e ferramentas na mala;
+5. Levantar o carro utilizando o macaco;
+6. Remover os parafusos com a chave de roda;
+7. Retirar a roda e guarda-la no lugar do estepe na mala;
+8. Por o estepe no lugar da roda;
+9. Parafusar o estepe;
+10. Abaixar o carro;
+11. Guardar ferramentas.

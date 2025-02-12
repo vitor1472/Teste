@@ -16,7 +16,6 @@ namespace TodoApi.Models
             modelBuilder.Entity<TodoItem>()
                 .ToTable("pontos_turisticos");  
 
-            
             modelBuilder.Entity<TodoItem>()
                 .Property(p => p.Id)
                 .HasColumnName("id");  

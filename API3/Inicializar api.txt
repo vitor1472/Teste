@@ -1,0 +1,5 @@
+npm i/install 
+
+dotnet run --launch-profile https
+
+https://localhost:<porta>/swagger

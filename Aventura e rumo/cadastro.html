@@ -227,8 +227,6 @@
                     <option value="SP">SP</option>
                     <option value="SE">SE</option>
                     <option value="TO">TO</option>
-
-
                 </select>
                 <input id="input1" type="text" name="descLoc">
             </div>
@@ -272,7 +270,6 @@
     </footer>
 
     <script>
-
         document.addEventListener("DOMContentLoaded", () => {
             const validateForm = () => {
                 let valid = true;
@@ -311,11 +308,8 @@
                     valid = false;
                 }
 
-
-                console.log(newErrors);
                 return valid;
             };
-
 
             async function Cadastro() {
                 const nomeLoc = document.querySelector('input[name="nomeLoc"]').value;
@@ -332,15 +326,11 @@
                     descritivos_Loc: descritivosLoc,
                 };
 
-                console.log("Dados enviados para a API:", data);
-
                 try {
                     const response = await axios.post('https://localhost:7293/api/PontosTuristicos', data);
 
                     if (response.status === 200) {
-                        console.log("Resposta da API:", response.data);
                         alert('Ponto turístico cadastrado com sucesso!');
-
 
                         document.querySelector('input[name="nomeLoc"]').value = '';
                         document.querySelector('select[name="estLoc"]').value = '';
@@ -349,11 +339,9 @@
                         document.querySelector('input[name="descritivosLoc"]').value = '';
                     }
                 } catch (error) {
-                    console.error("Erro ao enviar dados: ", error);
                     alert('Houve um problema ao cadastrar. Tente novamente.');
                 }
             }
-
 
             document.getElementById("formCadastro").addEventListener("submit", (event) => {
                 event.preventDefault();
